@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Smartline</string>
+    <string name="subway">지하철</string>
+    <string name="community">커뮤니티</string>
+    <string name="before">이전 화면으로</string>
+    <string name="write">글쓰기</string>
+    <string name="search">검색어를 입력해주세요</string>
+    <string name="findstation">역을 클릭하세요</string>
+
+    <string name="Kwangwoonuniversity">광운대역</string>
+</resources>
