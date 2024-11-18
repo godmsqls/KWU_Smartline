@@ -3,6 +3,10 @@ package com.example.smartline2;
 import android.content.Intent;
 import android.os.Bundle;
 
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -47,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         });
         //subway 버튼 누르면 SubActivity 넘어감
 
+
+
+        OkHttpClient client = new OkHttpClient();
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -54,3 +62,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
