@@ -1,57 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context=".ComActivity">
 
+    <!-- Toolbar 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#193073"
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/before"
-        android:layout_width="135dp"
-        android:layout_height="55dp"
+        <Button
+            android:id="@+id/before2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/before"
+            android:textColor="@android:color/white"
+            android:background="?attr/selectableItemBackground"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp" />
 
-        android:layout_marginEnd="296dp"
+        <TextView
+            android:id="@+id/toolbarTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        android:text="@string/before"
-        app:layout_constraintBottom_toTopOf="@id/search"
+            android:paddingStart="60dp"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+            android:text="@string/community"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
+    </LinearLayout>
 
+    <!-- 검색창 -->
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:queryHint="@string/search" />
+
+    <!-- 리스트뷰 -->
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#708090"
+        android:dividerHeight="1dp" />
+
+    <!-- 글쓰기 버튼 -->
     <Button
         android:id="@+id/write"
-        android:layout_width="90dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-
-        android:layout_marginStart="172dp"
-
+        android:layout_gravity="end"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_background"
         android:text="@string/write"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="665dp" />
-
-    <EditText
-        android:id="@+id/search"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-
-        android:inputType="text"
-        android:imeOptions="actionSearch"
-
-        android:hint="@string/search"
-
-        app:layout_constraintTop_toBottomOf="@id/before"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="94dp" />
+        android:textColor="@android:color/white"
+        android:drawablePadding="8dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
