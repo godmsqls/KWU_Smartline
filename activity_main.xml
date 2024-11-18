@@ -7,25 +7,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/app_name"
+        android:textSize="44sp"
+        android:textColor="@android:color/black"
+
+        android:layout_marginBottom="24dp"
+        tools:ignore="MissingConstraints" />
+
+
     <Button
         android:id="@+id/subway"
-        style="@android:style/Widget.Material.Light.Button.Small"
+
         android:layout_width="211dp"
         android:layout_height="151dp"
+
+        android:background="@drawable/button_background"
+
         android:text="@string/subway"
+        android:textColor="@android:color/white"
         android:textSize="40sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintBottom_toTopOf="@+id/community"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/community" />
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/community"
-        style="@android:style/Widget.Material.Light.Button.Small"
+
         android:layout_width="211dp"
         android:layout_height="151dp"
+
+        android:background="@drawable/button_background"
+
         android:text="@string/community"
+        android:textColor="@android:color/white"
         android:textSize="40sp"
+
         app:layout_constraintTop_toBottomOf="@id/subway"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
