@@ -32,7 +32,7 @@ import java.util.stream.Collectors;
 public class Subactivity extends AppCompatActivity {
 
     private ListView listview;
-    private SearchView searchView;
+    private SearchView stationsearchView;
     private ArrayAdapter<String> adapter;
 //    private List<String> fullList;
     private List<String> fulllist;
@@ -40,6 +40,7 @@ public class Subactivity extends AppCompatActivity {
     private Button before1;
     private Button seoulfilter,gyeonggifilter,incheonfilter,chungcheongfilter;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +67,7 @@ public class Subactivity extends AppCompatActivity {
 //            incheonfilter=findViewById(R.id.incheonfilter);
 //            chungcheongfilter=findViewById(R.id.chungcheongfilter);
 
-        searchView = findViewById(R.id.searchView);
+        stationsearchView = findViewById(R.id.stationsearchview);
         listview = findViewById(R.id.listview);
         seoulfilter = findViewById(R.id.seoulfilter);
         gyeonggifilter = findViewById(R.id.gyeonggifilter);
@@ -123,7 +124,7 @@ public class Subactivity extends AppCompatActivity {
             });
 
             // searchView 이벤트 리스너
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            stationsearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     return false;
@@ -143,10 +144,9 @@ public class Subactivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String selectedItem=adapter.getItem(position);
 
-                    if("구로".equals(selectedItem)){
-                        Intent intent = new Intent(Subactivity.this,GuroActivity.class);
+                        Intent intent = new Intent(Subactivity.this, StationDetailActivity.class);
+                        intent.putExtra("stationName",selectedItem);
                         startActivity(intent);
-                    }
                 }
             });
 
