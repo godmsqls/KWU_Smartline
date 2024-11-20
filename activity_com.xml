@@ -37,6 +37,14 @@
             android:textSize="30sp" />
     </LinearLayout>
 
+    <Spinner
+        android:id="@+id/menuFilterSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/searchView" />
+
     <!-- 검색창 -->
     <SearchView
         android:id="@+id/searchView"
@@ -45,14 +53,17 @@
         android:layout_margin="8dp"
         android:queryHint="@string/search" />
 
-    <!-- 리스트뷰 -->
-    <ListView
-        android:id="@+id/listView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="#708090"
-        android:dividerHeight="1dp" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:id="@+id/postContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
     <!-- 글쓰기 버튼 -->
     <Button
@@ -68,3 +79,4 @@
 
 
 </LinearLayout>
+
