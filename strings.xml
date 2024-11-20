@@ -8,4 +8,19 @@
     <string name="findstation">역을 클릭하세요</string>
 
     <string name="Kwangwoonuniversity">광운대역</string>
+
+<string-array name="menu_options">
+        <item>전체</item>
+        <item>1호선</item>
+        <item>2호선</item>
+        <item>3호선</item>
+        <item>4호선</item>
+        <item>5호선</item>
+        <item>6호선</item>
+        <item>7호선</item>
+        <item>8호선</item>
+        <item>9호선</item>
+    </string-array>
+
+    
 </resources>
