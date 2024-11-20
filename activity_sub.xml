@@ -1,92 +1,224 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WriteActivity">
+    android:orientation="vertical"
+    tools:context=".Subactivity">
 
-<!--     '이전 화면으로' 버튼 -->
-
-<!--     툴바 제목 -->
-
-<!--     제목 입력 필드 -->
-
-    <Button
-        android:id="@+id/before3"
-        android:layout_width="wrap_content"
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginStart="16dp"
-        android:text="이전으로"
-        app:layout_constraintBottom_toTopOf="@id/titleEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:background="#193073"
+        android:padding="12dp"
+        android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/toolbarTitle"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/before"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="이전 화면으로"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="지하철"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Filter Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="글쓰기"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
-        app:layout_constraintStart_toEndOf="@id/before3"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:paddingVertical="8dp">
 
-    <EditText
-        android:id="@+id/titleEditText"
-        android:layout_width="0dp"
+        <Button
+            android:id="@+id/seoulfilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/filter_background"
+            android:text="서울"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/gyeonggifilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/filter_background"
+            android:text="경기"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/incheonfilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/filter_background"
+            android:text="인천"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/chungcheongfilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:background="@drawable/filter_background"
+            android:text="충청"
+            android:textColor="@android:color/white"
+            android:textColorLink="#753D3D" />
+    </LinearLayout>
+
+    <!-- Search Bar -->
+    <SearchView
+        android:id="@+id/stationsearchview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="제목을 입력하세요"
-        android:layout_marginTop="16dp"
-        android:padding="8dp"
-        android:background="@android:drawable/edit_text"
-        app:layout_constraintTop_toBottomOf="@id/before3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:background="@drawable/searchview_background"
+        android:queryHint="역을 검색하세요"
+        android:iconifiedByDefault="false"
+        android:paddingHorizontal="8dp" />
 
-<!--     메뉴 선택 스피너 -->
-    <Spinner
-        android:id="@+id/menuSpinner"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/titleEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-<!--     본문 입력 필드 -->
-    <EditText
-        android:id="@+id/contentEditText"
-        android:layout_width="0dp"
+    <!-- Station List -->
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:hint="내용을 입력하세요"
-        android:gravity="start|top"
-        android:padding="8dp"
-        android:background="@android:drawable/edit_text"
-        android:inputType="textMultiLine"
-        android:scrollbars="vertical"
-        app:layout_constraintTop_toBottomOf="@id/menuSpinner"
-        app:layout_constraintBottom_toTopOf="@id/saveButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_weight="1"
+        android:divider="#193073"
+        android:dividerHeight="1dp"
+        android:padding="8dp" />
+</LinearLayout>
 
-<!--     저장 버튼 -->
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="저장"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
-        app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/main"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    tools:context=".Subactivity">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:background="#193073"-->
+<!--        android:padding="16dp">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/before"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/selectableItemBackground"-->
+<!--            android:paddingHorizontal="8dp"-->
+<!--            android:paddingVertical="4dp"-->
+<!--            android:text="@string/before"-->
+<!--            android:textColor="@android:color/white" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/toolbarTitle"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+
+<!--            android:paddingStart="60dp"-->
+<!--            android:text="@string/subway"-->
+<!--            android:textColor="@android:color/white"-->
+
+<!--            android:textSize="30sp" />-->
+
+<!--    </LinearLayout>-->
+
+
+
+<!--    <LinearLayout-->
+<!--        android:paddingVertical="5dp"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/seoulfilter"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:background="@drawable/filter_background"-->
+<!--            android:text="서울"-->
+<!--            android:textColor="@color/white" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/gyeonggifilter"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:background="@drawable/filter_background"-->
+<!--            android:text="경기" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/incheonfilter"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:background="@drawable/filter_background"-->
+<!--            android:text="인천" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/chungcheongfilter"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:background="@drawable/filter_background"-->
+<!--            android:text="충청" />-->
+<!--    </LinearLayout>-->
+
+<!--    <SearchView-->
+<!--        android:id="@+id/searchView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:queryHint="@string/findstation"-->
+<!--        tools:ignore="InvalidId"-->
+<!--        >-->
+
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical" />-->
+<!--        </ScrollView>-->
+
+<!--    </SearchView>-->
+
+<!--    <ListView-->
+<!--        android:id="@+id/listview"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:divider="@color/design_default_color_primary_variant"-->
+<!--        android:dividerHeight="2dp">-->
+<!--    </ListView>-->
+
+<!--</LinearLayout>-->
+
