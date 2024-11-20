@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".StationDetailActivity">
+
+    <TextView
+        android:id="@+id/subway_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="지하철 정보를 여기에 표시합니다."
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:background="@color/white"
+        android:textColor="@color/black" />
+
+</LinearLayout>
