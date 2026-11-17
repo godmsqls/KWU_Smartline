@@ -23,7 +23,7 @@ SK OPEN API에서 제공하는 혼잡도를 ５가지로 분류하여 제공
 
 
 ## API 정보
-<img width="382" height="904" alt="image" src="https://github.com/user-attachments/assets/4a9a1e33-1bdc-475b-ae74-9cf555613682" />
+<img width="382" height="600" alt="image" src="https://github.com/user-attachments/assets/4a9a1e33-1bdc-475b-ae74-9cf555613682" />
 </br>  
 
 
